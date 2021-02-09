@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>CoinFlip</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script type="text/javascript" src="./abi.js"></script>
+  <script type="text/javascript" src="./main.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+  <style>
+    .blink-won {
+      width: 100%;
+      height: 50px;
+      background-color: lightgreen;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .blink-lost {
+      width: 100%;
+      height: 50px;
+      background-color: red;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .blink-pending {
+      width: 100%;
+      height: 50px;
+      background-color: lightgrey;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    span {
+      font-size: 25px;
+      color: white;
+      animation: blink 1s linear infinite;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: .5;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Coinflip</h1>
+        <p class="lead text-muted">Try your luck and flip a coin
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row">
+      <div id="result"><span id="resultText">blinking text</span></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <p class="lead text-muted">Balance in ETH</p>
+      </div>
+      <div class="col-sm">
+        <p id="contractBalance"></p>
+      </div>
+      <div class="col-sm">
+        <button id="refresh" class="btn btn-secondary">Refresh</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <p class="lead text-muted">Place Bet</p>
+      </div>
+      <div class="col-sm">
+        <input type="text" id="bet" class="form-control">
+      </div>
+      <div class="col-sm">
+        <button id="play" class="btn btn-secondary">Play</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <p class="lead text-muted">Deposit funds</p>
+      </div>
+      <div class="col-sm">
+        <input type="text" id="funds" class="form-control">
+      </div>
+      <div class="col-sm">
+        <button id="deposit" class="btn btn-secondary">Deposit</button>
+      </div>
+    </div>
+
+    <button id="withdrawl" class="btn btn-secondary">Withdrawl</button>
+  </div>
+  </div>
+
+
+</html>
